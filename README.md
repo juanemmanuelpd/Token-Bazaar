@@ -54,4 +54,5 @@ A bazaar with the security and efficiency you deserve to buy/sell your NFT's.
 * `testUserCanNotBuyIfIsBlocked()` -> Ensure that any blocked user cannot purchase NFTs in the bazaar.
 ## Forge Coverage ✅
 ![Forge Coverage](images/forgeCoverage.png)  
+
 CODE IS LAW!
