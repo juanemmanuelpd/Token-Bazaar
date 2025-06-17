@@ -44,5 +44,13 @@ A bazaar with the security and efficiency you deserve to buy/sell your NFT's.
 * `testCanNotBuyUnlistedNFT()` -> The test should revert if you try to buy an NFT that is not listed by a user.
 * `testCanNotBuyWithIncorrectPay()` -> The test reverts if a user attempts to purchase an NFT with an amount different from the price. It must be the exact same amount of Ether as the price of the NFT.
 * `testShouldBuyNFTCorrectly()` -> Verify that any user can successfully purchase an NFT.
-
+* `testOwnerCanModifyPercentFeesCorrectly()` ->
+* `testOwnerCanAddToBlackListCorrectly()` ->
+* `testOwnerCanRemoveFromBlackListCorrectly()` ->
+* `testOwnerCanPauseTheContract()` ->
+* `testOwnerCanUnpauseTheContract()` ->
+* `testUserCanNotListIfIsBlocked()` ->
+* `testUserCanNotCancelListIfIsBlocked()` ->
+* `testUserCanNotBuyIfIsBlocked()` ->
+  
 CODE IS LAW!
