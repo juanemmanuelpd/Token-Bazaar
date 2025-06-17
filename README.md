@@ -6,7 +6,9 @@ A bazaar with the security and efficiency you deserve to buy/sell your NFT's.
 * Cancel your NFT listing whenever you want.
 * Buy NFTs using Ethereum.
 * Modify the percentage of fees you will receive for each sale made in your bazaar.
-* 
+* Add fraudulent users to a blacklist to prevent them from selling or buying NFTs.
+* Remove fraudulent users from the blacklist when the time is right.
+* In case of emergency, pause all bazaar transactions to avoid system errors or inappropriate actions by scammers.
 * All smart contract functions tested.
 ## Technical details ⚙️
 * Framework CLI -> Foundry.
