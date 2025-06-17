@@ -53,7 +53,8 @@ A bazaar with the security and efficiency you deserve to buy/sell your NFT's.
 * `testUserCanNotCancelListIfIsBlocked()` -> Verify that any blocked user cannot delete NFTs for sale in the bazaar.
 * `testUserCanNotBuyIfIsBlocked()` -> Ensure that any blocked user cannot purchase NFTs in the bazaar.
 
-  
+![Forge Coverage](imagenes/forgeCoverage.png)
+
 
 ## Forge Coverage
 
