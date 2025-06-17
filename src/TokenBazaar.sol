@@ -52,7 +52,7 @@ contract tokenBazaar is ReentrancyGuard, Ownable, Pausable{
 
     // Functions
 
-    function listNFT(address nftAddress_, uint256 tokenId_, uint256 price_) external whenNotPaused nonReentrant {
+    function listNFT(address nftAddress_, uint256 tokenId_, uint256 price_) external notBloked whenNotPaused nonReentrant {
         require(price_ > 0, "Price can not be 0");
         address owner_ = IERC721(nftAddress_).ownerOf(tokenId_);
         require(owner_ == msg.sender, "You are not the owner of the NFT");
@@ -66,7 +66,7 @@ contract tokenBazaar is ReentrancyGuard, Ownable, Pausable{
         emit e_NFTListed(msg.sender, nftAddress_, tokenId_, price_);
     }
     
-    function buyNFT(address nftAddress_, uint256 tokenId_) external payable whenNotPaused nonReentrant {
+    function buyNFT(address nftAddress_, uint256 tokenId_) external payable notBloked whenNotPaused nonReentrant {
         Listing memory listing_ = listing[nftAddress_][tokenId_];
         require(listing_.price > 0, "Listing not exists");
         require(msg.value == listing_.price, "Incorrect amount");
@@ -88,7 +88,7 @@ contract tokenBazaar is ReentrancyGuard, Ownable, Pausable{
         emit e_newFees(percentFees);
     }
 
-    function cancelList(address nftAddress_, uint256 tokenId_) external whenNotPaused nonReentrant {
+    function cancelList(address nftAddress_, uint256 tokenId_) external notBloked whenNotPaused nonReentrant {
         Listing memory listing_ = listing[nftAddress_][tokenId_];
         require(listing_.seller == msg.sender, "You are not the listing owner");
         delete listing[nftAddress_][tokenId_];

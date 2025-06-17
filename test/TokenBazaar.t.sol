@@ -191,4 +191,49 @@ contract tokenBazaarTest is Test {
        assert(!tokenBazaarTesting.paused());
        vm.stopPrank(); 
     }
+
+    function testUserCanNotListIfIsBlocked() public{
+       vm.startPrank(owner);
+       tokenBazaarTesting.addToBlackList(user);
+       vm.stopPrank(); 
+
+       vm.startPrank(user);
+       vm.expectRevert();
+       tokenBazaarTesting.listNFT(address(mockNFTTesting), tokenId, 1);
+       vm.stopPrank();
+    }
+
+    function testUserCanNotCancelListIfIsBlocked() public{
+       vm.startPrank(owner);
+       tokenBazaarTesting.addToBlackList(user);
+       vm.stopPrank(); 
+
+       vm.startPrank(user);
+       vm.expectRevert();
+       tokenBazaarTesting.cancelList(address(mockNFTTesting), tokenId);
+       vm.stopPrank();
+    }
+
+    function testUserCanNotBuyIfIsBlocked() public{
+       address user2 = vm.addr(3);
+       vm.startPrank(owner);
+       tokenBazaarTesting.addToBlackList(user2);
+       vm.stopPrank(); 
+
+       vm.startPrank(user);
+       uint256 price = 1e18;
+       (address sellerBefore,,,) = tokenBazaarTesting.listing(address(mockNFTTesting), tokenId);
+       tokenBazaarTesting.listNFT(address(mockNFTTesting), tokenId, price);
+       (address sellerAfter,,,) = tokenBazaarTesting.listing(address(mockNFTTesting), tokenId);
+       assert(sellerBefore == address(0) && sellerAfter == user);
+       mockNFTTesting.approve(address(tokenBazaarTesting), tokenId);
+       vm.stopPrank();
+
+
+       vm.startPrank(user2);
+       vm.deal(user2, 2e18);
+       vm.expectRevert();
+       tokenBazaarTesting.buyNFT{value: price}(address(mockNFTTesting), tokenId);
+       vm.stopPrank();
+    }
 }
