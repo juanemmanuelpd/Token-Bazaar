@@ -8,7 +8,7 @@ A bazaar with the security and efficiency you deserve to buy/sell your NFT's.
 * Modify the percentage of fees you will receive for each sale made in your bazaar.
 * Add fraudulent users to a blacklist to prevent them from selling or buying NFTs.
 * Remove fraudulent users from the blacklist when the time is right.
-* In case of emergency, pause all bazaar transactions to avoid system errors or inappropriate actions by scammers.
+* In case of emergency, pause all bazaar transactions to avoid system errors or inappropriate actions by scammers and resume them when necessary.
 * All smart contract functions tested.
 ## Technical details ⚙️
 * Framework CLI -> Foundry.
